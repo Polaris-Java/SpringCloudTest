@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: hello-spring-cloud-config
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/Polaris-Java/SpringCloudTest
+          search-paths: hello-spring-cloud-config-file
+          username: ma_zhenshan@163.com
+          password: mashan64555
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

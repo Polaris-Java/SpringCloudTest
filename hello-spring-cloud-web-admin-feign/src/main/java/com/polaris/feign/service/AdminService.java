@@ -1,5 +1,6 @@
 package com.polaris.feign.service;
 
+import com.polaris.feign.service.hystrix.AdminServiceHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date: 2019/11/29
  */
 @Service
-@FeignClient(value = "hello-spring-cloud-service-admin")
+@FeignClient(value = "hello-spring-cloud-service-admin",fallback = AdminServiceHystrix.class)
 public interface AdminService {
 
     @RequestMapping(value = "hi",method = RequestMethod.GET)
